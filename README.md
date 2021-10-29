@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
-This application is the most awesome app! The awesome-app! It's awesome! It's an app!
+This app is the most awesome app! The awesome-app! It's awesome! It's an app!
 First, run the development server:
 
 ```bash
