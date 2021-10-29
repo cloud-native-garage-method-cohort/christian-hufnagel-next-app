@@ -17,6 +17,7 @@ metadata:
 spec:
   params:
     - name: source-repo
+    Description: 
     - name: sha
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1

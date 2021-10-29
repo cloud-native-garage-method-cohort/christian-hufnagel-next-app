@@ -20,6 +20,8 @@ spec:
       params:
         - name: url
           value: "$(params.source-repo)"
+        - name: revision
+          value: "$(params.sha)"
       taskRef:
         name: git-clone
         kind: ClusterTask
