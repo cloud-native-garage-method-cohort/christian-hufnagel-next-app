@@ -33,9 +33,9 @@ spec:
           - name: image-repo
             value: quay.io/christian_hufnagel/next-app
           - name: source-repo
-            value: $(tt.params.source-repo)
+            value: "$(tt.params.source-repo)"
           - name: sha
-            value: $(tt.params.sha)
+            value: "$(tt.params.sha)"
         pipelineRef:
           name: next-app
         workspaces:
@@ -66,9 +66,9 @@ metadata:
 spec:
   params:
     - name: source-repo
-      value: $(body.repository.url)
+      value: "$(body.repository.url)"
     - name: sha
-      value: $(body.head_commit.id)
+      value: "$(body.head_commit.id)"
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -96,6 +96,7 @@ rules:
       - ""
     verbs:
       - list
+      - watch
 ---
 apiVersion: v1
 kind: ServiceAccount
