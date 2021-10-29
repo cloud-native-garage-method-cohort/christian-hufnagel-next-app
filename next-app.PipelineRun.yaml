@@ -1,0 +1,35 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: next-app-
+spec:
+  serviceAccountName: build-bot
+  params:
+    - name: app-name
+      value: next-app
+    - name: source-repo
+      value: https://github.com/cloud-native-garage-method-cohort/christian-hufnagel-next-app
+    - name: image-repo
+      value: quay.io/christian_hufnagel/next-app
+  pipelineRef:
+    name: next-app
+  workspaces:
+    - name: pipeline-shared-data
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce 
+          resources:
+            requests:
+              storage: 1Gi
+    - name: gitops-repository
+      volumeClaimTemplate:
+        spec:
+          resources:
+            requests:
+              storage: 1Gi
+          accessModes:
+          - ReadWriteOnce
+    - name: git-credentials
+      secret:
+        secretName: git-credentials
